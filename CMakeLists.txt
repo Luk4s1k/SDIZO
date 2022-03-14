@@ -3,4 +3,4 @@ project(SDIZO)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(SDIZO main.cpp DataTypes/Array.cpp DataTypes/Array.h Menu.cpp Menu.h)
+add_executable(SDIZO main.cpp DataTypes/Array.cpp DataTypes/Array.h Menu.cpp Menu.h DataTypes/LinkedList.cpp DataTypes/LinkedList.h DataTypes/ListNode.h)
