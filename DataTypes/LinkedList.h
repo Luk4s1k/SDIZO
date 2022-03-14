@@ -7,26 +7,11 @@
 
 #include <string>
 #include "ListNode.h"
-class Node {
-public:
-    Node(){
-        next = nullptr;
-        prev = nullptr;
-        value = 0;
-    }
-    Node(int value):value(value){
-        next = nullptr;
-        prev = nullptr;
-    }
-private:
-    int *next;
-    int *prev;
-    int value;
-};
+
 class LinkedList {
 private:
-     Node *head;
-     Node *tail;
+     ListNode *head;
+     ListNode *tail;
      int length;
 public:
      LinkedList();
@@ -34,9 +19,9 @@ public:
 
      void insertFront(int value);
      void insertBack(int value);
-     void insertAfter(Node node, int value);
+     void insertAfter(ListNode node, int value);
 
-     Node* getNodeAtPos(int pos);
+     ListNode* getNodeAtPos(int pos);
 
      void removeFront();
      void removeBack();
