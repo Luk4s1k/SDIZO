@@ -78,29 +78,23 @@ build CMakeFiles/SDIZO.dir/main.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitr
   OBJECT_DIR = CMakeFiles/SDIZO.dir
   OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir
 
-build CMakeFiles/SDIZO.dir/DataTypes/Array.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitrovic/CLionProjects/SDIZO/DataTypes/Array.cpp || cmake_object_order_depends_target_SDIZO
-  DEP_FILE = CMakeFiles/SDIZO.dir/DataTypes/Array.cpp.o.d
+build CMakeFiles/SDIZO.dir/DataTypes/Array/Array.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitrovic/CLionProjects/SDIZO/DataTypes/Array/Array.cpp || cmake_object_order_depends_target_SDIZO
+  DEP_FILE = CMakeFiles/SDIZO.dir/DataTypes/Array/Array.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -std=gnu++2a
   OBJECT_DIR = CMakeFiles/SDIZO.dir
-  OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir/DataTypes
+  OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir/DataTypes/Array
 
-build CMakeFiles/SDIZO.dir/Menu.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitrovic/CLionProjects/SDIZO/Menu.cpp || cmake_object_order_depends_target_SDIZO
-  DEP_FILE = CMakeFiles/SDIZO.dir/Menu.cpp.o.d
+build CMakeFiles/SDIZO.dir/Menu/Menu.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitrovic/CLionProjects/SDIZO/Menu/Menu.cpp || cmake_object_order_depends_target_SDIZO
+  DEP_FILE = CMakeFiles/SDIZO.dir/Menu/Menu.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -std=gnu++2a
   OBJECT_DIR = CMakeFiles/SDIZO.dir
-  OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir
+  OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir/Menu
 
-build CMakeFiles/SDIZO.dir/DataTypes/LinkedList.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitrovic/CLionProjects/SDIZO/DataTypes/LinkedList.cpp || cmake_object_order_depends_target_SDIZO
-  DEP_FILE = CMakeFiles/SDIZO.dir/DataTypes/LinkedList.cpp.o.d
+build CMakeFiles/SDIZO.dir/DataTypes/LinkedList/LinkedList.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitrovic/CLionProjects/SDIZO/DataTypes/LinkedList/LinkedList.cpp || cmake_object_order_depends_target_SDIZO
+  DEP_FILE = CMakeFiles/SDIZO.dir/DataTypes/LinkedList/LinkedList.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -std=gnu++2a
   OBJECT_DIR = CMakeFiles/SDIZO.dir
-  OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir/DataTypes
-
-build CMakeFiles/SDIZO.dir/DataTypes/ListNode.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitrovic/CLionProjects/SDIZO/DataTypes/ListNode.cpp || cmake_object_order_depends_target_SDIZO
-  DEP_FILE = CMakeFiles/SDIZO.dir/DataTypes/ListNode.cpp.o.d
-  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -std=gnu++2a
-  OBJECT_DIR = CMakeFiles/SDIZO.dir
-  OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir/DataTypes
+  OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir/DataTypes/LinkedList
 
 
 # =============================================================================
@@ -110,7 +104,7 @@ build CMakeFiles/SDIZO.dir/DataTypes/ListNode.cpp.o: CXX_COMPILER__SDIZO_Debug /
 #############################################
 # Link the executable SDIZO
 
-build SDIZO: CXX_EXECUTABLE_LINKER__SDIZO_Debug CMakeFiles/SDIZO.dir/main.cpp.o CMakeFiles/SDIZO.dir/DataTypes/Array.cpp.o CMakeFiles/SDIZO.dir/Menu.cpp.o CMakeFiles/SDIZO.dir/DataTypes/LinkedList.cpp.o CMakeFiles/SDIZO.dir/DataTypes/ListNode.cpp.o
+build SDIZO: CXX_EXECUTABLE_LINKER__SDIZO_Debug CMakeFiles/SDIZO.dir/main.cpp.o CMakeFiles/SDIZO.dir/DataTypes/Array/Array.cpp.o CMakeFiles/SDIZO.dir/Menu/Menu.cpp.o CMakeFiles/SDIZO.dir/DataTypes/LinkedList/LinkedList.cpp.o
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk
   OBJECT_DIR = CMakeFiles/SDIZO.dir
   POST_BUILD = :

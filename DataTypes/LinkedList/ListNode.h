@@ -8,10 +8,9 @@
 
 class ListNode {
 public:
-    ListNode(int value, int *next, int* prev):value(value),next(next),prev(prev){};
-private:
-    int *next;
-    int *prev;
+    ListNode(int value, ListNode *next, ListNode* prev):value(value),next(next),prev(prev){};
+    ListNode *next;
+    ListNode *prev;
     int value;
 };
 

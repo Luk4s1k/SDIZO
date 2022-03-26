@@ -19,15 +19,13 @@ public:
 
      void insertFront(int value);
      void insertBack(int value);
-     void insertAfter(ListNode node, int value);
-
-     ListNode* getNodeAtPos(int pos);
+     void insertAt(unsigned int position, int value);
 
      void removeFront();
      void removeBack();
-     void removeAfter();
+     void removeAt(unsigned int position);
 
-     void find(int value);
+     int find(int value);
 
      void print();
 

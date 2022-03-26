@@ -5,7 +5,7 @@
 #ifndef SDIZO_MENU_H
 #define SDIZO_MENU_H
 #include <iostream>
-#include "DataTypes/Array.h"
+#include "../DataTypes/Array/Array.h"
 
 class Menu {
 public:
