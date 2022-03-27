@@ -9,11 +9,11 @@ int main() {
 //    menu->arrayCreationMenuMode();
 //    menu->arrayOperationsMenuMode();
     Heap *heap = new Heap();
-    heap->printAsArray();
     heap->addElement(1);
     heap->addElement(2);
     heap->addElement(3);
     heap->addElement(4);
+    heap->addElement(2);
     heap->addElement(2);
 
     heap->printAsArray();

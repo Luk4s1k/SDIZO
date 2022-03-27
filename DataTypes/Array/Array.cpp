@@ -61,7 +61,7 @@ void Array::push_back(int value) {
         int *newArr = reinterpret_cast<int *>(malloc(size * sizeof(int)));
         copy(newArr, head, size);
         newArr[size] = value;
-        delete[] head;
+        delete [] head;
         head = newArr;
         ++size;
     }
@@ -76,7 +76,7 @@ void Array::push_front(int value) {
         int *newArr = reinterpret_cast<int *>(malloc(size * sizeof(int)));
         copy(&newArr[1], head, size);
         newArr[0] = value;
-        delete[] head;
+        delete [] head;
         head = newArr;
         ++size;
     }
