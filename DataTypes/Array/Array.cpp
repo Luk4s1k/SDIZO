@@ -176,6 +176,15 @@ void Array::modify(int index, int value) {
     head[index] = value;
 }
 
+int &Array::operator[](int i) {
+    if( i > size ) {
+        std::cout << "Index out of range" << std::endl;
+        return head[0];
+    }
+
+    return head[i];
+}
+
 
 
 

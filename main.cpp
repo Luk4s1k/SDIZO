@@ -1,25 +1,26 @@
 #include <iostream>
 #include "DataTypes/Array/Array.h"
 #include "DataTypes/LinkedList/LinkedList.h"
+#include "DataTypes/Heap/Heap.h"
 #include "Menu/Menu.h"
 
 int main() {
 //    Menu* menu = new Menu();
 //    menu->arrayCreationMenuMode();
 //    menu->arrayOperationsMenuMode();
+    Heap *heap = new Heap();
+    heap->printAsArray();
+    heap->addElement(1);
+    heap->addElement(2);
+    heap->addElement(3);
+    heap->addElement(4);
+    heap->addElement(2);
 
-    LinkedList *list = new LinkedList("/Users/lukamitrovic/Desktop/testList.txt");
-//    list->insertFront(1);
-//    list->insertFront(2);
-//    list->insertBack(3);
-//    list->insertBack(4);
-//    list->removeAt(0);
-//    list->removeAt(1);
-//    list->removeAt(2);
-//    list->removeAt(2);
-//    std::cout << list->find(1) << std::endl;
+    heap->printAsArray();
+    heap->print_tree();
 
-    list->print();
+
+
 
     return 0;
 }

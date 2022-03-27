@@ -153,4 +153,23 @@ void LinkedList::print() {
             std::cout << "nullptr" << std::endl;
 }
 
+LinkedList::~LinkedList() {
+    while(length != 0){
+        removeFront();
+        length--;
+    }
+}
+
+int LinkedList::getLength() {
+    return length;
+}
+
+ListNode* LinkedList::getElem(int pos) {
+    ListNode *temp = head;
+    for (int i = 0; i < pos; i++){
+        temp = temp->next;
+    }
+    return temp;
+}
+
 
