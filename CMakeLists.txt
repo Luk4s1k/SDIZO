@@ -3,4 +3,4 @@ project(SDIZO)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(SDIZO main.cpp DataTypes/Array/Array.cpp DataTypes/Array/Array.h Menu/Menu.cpp Menu/Menu.h DataTypes/LinkedList/LinkedList.cpp DataTypes/LinkedList/LinkedList.h DataTypes/LinkedList/ListNode.h DataTypes/Heap/Heap.cpp DataTypes/Heap/Heap.h)
+add_executable(SDIZO main.cpp DataTypes/Array/Array.cpp DataTypes/Array/Array.h Menu/ArrayMenu/ArrayMenu.cpp Menu/ArrayMenu/ArrayMenu.h DataTypes/LinkedList/LinkedList.cpp DataTypes/LinkedList/LinkedList.h DataTypes/LinkedList/ListNode.h DataTypes/Heap/Heap.cpp DataTypes/Heap/Heap.h Menu/ListMenu/LinkedListMenu.cpp Menu/ListMenu/LinkedListMenu.h Menu/HeapMenu/HeapMenu.cpp Menu/HeapMenu/HeapMenu.h Menu/MainMenu/MainMenu.cpp Menu/MainMenu/MainMenu.h)

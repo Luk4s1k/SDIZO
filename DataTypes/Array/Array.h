@@ -32,9 +32,9 @@ public:
     void copy(int* destination, int* source, int numberOfElems);
     int* getPointer(int pos);
     int getSize();
+    int *at(int pos);
 
     int &operator[](int i);
-private:
     int size;
     int *head;
 };

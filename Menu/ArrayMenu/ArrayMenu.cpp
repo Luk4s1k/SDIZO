@@ -2,9 +2,9 @@
 // Created by Luka Mitrovic on 12/02/2022.
 //
 
-#include "Menu.h"
+#include "ArrayMenu.h"
 
-void Menu::arrayCreationMenuMode() {
+void ArrayMenu::arrayCreationMenuMode() {
     int ArrayCreationOption;
     std::cout << " ------- ARRAY ---------- " << std::endl;
     std::cout << " 1 - Create custom array"<< std::endl;
@@ -12,18 +12,20 @@ void Menu::arrayCreationMenuMode() {
     std::cin >> ArrayCreationOption;
     if(ArrayCreationOption == 1){
         arrayToOperateWith= new Array();
+        arrayOperationsMenuMode();
     }else if (ArrayCreationOption == 2){
         std::string filename;
         std::cout << "FILE PATH:";
         std::cin >> filename;
         arrayToOperateWith= new Array(filename);
+        arrayOperationsMenuMode();
     }else {
         std::cout << "INVALID OPTION !!!" << std::endl;
         arrayCreationMenuMode();
     }
 }
 
-void Menu::arrayOperationsMenuMode() {
+void ArrayMenu::arrayOperationsMenuMode() {
     int ArrayOperationOption;
     int value, index;
     std::cout << " ------- ARRAY ---------- " << std::endl;
@@ -35,11 +37,14 @@ void Menu::arrayOperationsMenuMode() {
     std::cout << " 6 - Delete element from position"<< std::endl;
     std::cout << " 7 - Change element"<< std::endl;
     std::cout << " 8 - Search element "<< std::endl;
+    std::cout << " 9 - EXIT "<< std::endl;
     std::cin >> ArrayOperationOption;
     switch(ArrayOperationOption){
         default:
             std::cout << "INVALID CHOICE" << std::endl;
             arrayOperationsMenuMode();
+        case 9:
+            return;
         case 1:
             std::cout << "Value to add:";
             std::cin >> value;

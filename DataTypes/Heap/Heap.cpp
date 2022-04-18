@@ -10,11 +10,11 @@
 #include<vector> // used only in printAsTreeFunction
 
 Heap::Heap() {
-    heapArray = Array();
+    heapArray = new Array();
 }
 
 Heap::Heap(std::string filename) {
-    heapArray = Array(filename);
+    heapArray = new Array(filename);
 }
 
 void Heap::heapifyFromStart(int index) {
@@ -23,11 +23,11 @@ void Heap::heapifyFromStart(int index) {
 
     int largest = index;
 
-    if (left < heapArray.getSize() && heapArray[left] > heapArray[index]) {
+    if (left < heapArray->getSize() && *heapArray->at(left) > *heapArray->at(index)) {
         largest = left;
     }
 
-    if (right < heapArray.getSize() && heapArray[right] > heapArray[largest]) {
+    if (right < heapArray->getSize() && *heapArray->at(right) > *heapArray->at(largest)) {
         largest = right;
     }
 
@@ -39,7 +39,7 @@ void Heap::heapifyFromStart(int index) {
 }
 
 void Heap::heapifyFromEnd(int index) {
-    if (index && heapArray[getParent(index)] < heapArray[index])
+    if (index && *heapArray->at(getParent(index)) < *heapArray->at(index))
     {
         swap(index, getParent(index));
 
@@ -48,29 +48,29 @@ void Heap::heapifyFromEnd(int index) {
 }
 
 void Heap::addElement(int value) {
-    heapArray.push_front(value);
-    int index = heapArray.getSize() - 1;
+    heapArray->push_back(value);
+    int index = heapArray->getSize() - 1;
     heapifyFromEnd(index);
 }
 
 int Heap::extractRoot() {
-    if (heapArray.getSize() == 0)
+    if (heapArray->getSize() == 0)
     {
         std::cout << "Heap is already empty" << std::endl;
         return -1;
     }
-    int temp = heapArray[0];
-    heapArray.pop_front();
+    int temp = *heapArray->at(0);
+    heapArray->pop_front();
     heapifyFromStart(0);
     return temp;
 }
 
 int Heap::getRootValue() {
-    return heapArray[0];
+    return *heapArray->at(0);
 }
 
 void Heap::printAsArray() {
-    heapArray.print();
+    heapArray->print();
 }
 std::string do_padding (unsigned index, unsigned mlength){
     std::string padding;
@@ -84,16 +84,16 @@ std::string do_padding (unsigned index, unsigned mlength){
 
 
 void Heap::printer (unsigned index, unsigned mlength){
-    auto last = heapArray.getSize() - 1 ;
+    auto last = heapArray->getSize() - 1 ;
     auto  left = 2 * index + 1 ;
     auto  right = 2 * index + 2 ;
-    std::cout << " " << heapArray[index] << " ";
+    std::cout << " " << *heapArray->at(index) << " ";
     if (left <= last){
-        auto llength = std::to_string(heapArray[left]).size();
+        auto llength = std::to_string(*heapArray->at(left)).size();
         std::cout << "---" << std::string(mlength - llength,'-');
         printer(left,mlength);
         if (right <= last) {
-            auto rlength = std::to_string(heapArray[right]).size();
+            auto rlength = std::to_string(*heapArray->at(right)).size();
             std::cout << "\n" << do_padding(right,mlength) << std::string(mlength+ 3,' ') << " | ";
             std::cout << "\n" << do_padding(right,mlength) << std::string(mlength+ 3,' ') << " └" <<
                       std::string(mlength - rlength,'-');
@@ -105,13 +105,13 @@ void Heap::printer (unsigned index, unsigned mlength){
 
 void Heap::print_tree (){
     unsigned mlength = 0;
-    for (int i = 0; i < heapArray.getSize(); i++){
-        auto clength = std::to_string(heapArray[i]).size();
+    for (int i = 0; i < heapArray->getSize(); i++){
+        auto clength = std::to_string(*heapArray->at(i)).size();
         if (clength > mlength) {
-            mlength = std::to_string(heapArray[i]).size();
+            mlength = std::to_string(*heapArray->at(i)).size();
         }
     }
-    std::cout <<  std::string(mlength- std::to_string(heapArray[0]).size(),' ');
+    std::cout <<  std::string(mlength- std::to_string(*heapArray->at(0)).size(),' ');
     printer(0,mlength);
 }
 
@@ -130,31 +130,31 @@ int Heap::getRightChild(unsigned int index) {
 
 void Heap::swap(int a, int b)
 {
-    int temp = heapArray[a];
-    heapArray[a] = heapArray[b];
-    heapArray[b] = temp;
+    int temp = *heapArray->at(a);
+    *heapArray->at(a) = *heapArray->at(b);
+    *heapArray->at(b) = temp;
 }
 
 bool Heap::search(int startPos, int value) {
     unsigned int left = 2 * startPos + 1;
     unsigned int right = 2 * startPos + 1;
-    if(heapArray[startPos] == value){
+    if(*heapArray->at(startPos) == value){
         return true;
     }
-    if(left > heapArray.getSize()){
+    if(left > heapArray->getSize()){
         return false;
     }
     bool isFounded = search(left, value);
     if (isFounded){
         return true;
     }
-    if(right > heapArray.getSize()){
+    if(right > heapArray->getSize()){
         return false;
     }
     return search(right, value);
 }
 
 Heap::~Heap() {
-
+    delete heapArray;
 }
 

@@ -2,14 +2,13 @@
 // Created by Luka Mitrovic on 12/02/2022.
 //
 
-#ifndef SDIZO_MENU_H
-#define SDIZO_MENU_H
+#ifndef SDIZO_ARRAYMENU_H
+#define SDIZO_ARRAYMENU_H
 #include <iostream>
-#include "../DataTypes/Array/Array.h"
+#include "../../DataTypes/Array/Array.h"
 
-class Menu {
+class ArrayMenu {
 public:
-    void DataChooseMode();
 
     void arrayCreationMenuMode();
     void arrayOperationsMenuMode();
@@ -19,4 +18,4 @@ private:
 };
 
 
-#endif //SDIZO_MENU_H
+#endif //SDIZO_ARRAYMENU_H

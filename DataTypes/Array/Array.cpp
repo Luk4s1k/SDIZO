@@ -6,11 +6,11 @@
 
 Array::Array() {
     size = 0;
-    head = new int[0];
+    head = new int[1];
 }
 Array::Array(int size) {
     this->size = size;
-    head = new int[0];
+    head = new int[1];
 }
 
 Array::Array(std::string filename) {
@@ -27,15 +27,20 @@ Array::Array(std::string filename) {
             i++;
         }
     }
-    if (this->getSize() != arraySizeFromFile) std::cout << "INVALID SIZE OF ARRAY PROVIDED IN FILE" << std::endl;
+    if (size != arraySizeFromFile) std::cout << "INVALID SIZE OF ARRAY PROVIDED IN FILE" << std::endl;
     file.close();
 }
 
 void Array::push(int index, int value) {
-    if (size == 0) {
+    if (index > size || index < 0){
+        std::cout << "Provided index out of range " << std::endl;
+        return;
+    }
+    else if (size == 0) {
         head[0] = value;
         size++;
-    } else {
+    }
+    else {
         if (index == 0){
             push_front(value);
         } else if (index == size - 1) {
@@ -61,9 +66,9 @@ void Array::push_back(int value) {
         int *newArr = reinterpret_cast<int *>(malloc(size * sizeof(int)));
         copy(newArr, head, size);
         newArr[size] = value;
-        delete [] head;
+        delete[] head;
         head = newArr;
-        ++size;
+        size++;
     }
 }
 
@@ -84,6 +89,10 @@ void Array::push_front(int value) {
 
 void Array::pop(int index) {
     if (size == 0) {
+        return;
+    }
+    else if (index > size || index < 0){
+        std::cout << "Provided index out of range " << std::endl;
         return;
     }
     else {
@@ -183,6 +192,10 @@ int &Array::operator[](int i) {
     }
 
     return head[i];
+}
+
+int *Array::at(int pos) {
+    return &head[pos];
 }
 
 

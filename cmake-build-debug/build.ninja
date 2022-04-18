@@ -84,11 +84,11 @@ build CMakeFiles/SDIZO.dir/DataTypes/Array/Array.cpp.o: CXX_COMPILER__SDIZO_Debu
   OBJECT_DIR = CMakeFiles/SDIZO.dir
   OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir/DataTypes/Array
 
-build CMakeFiles/SDIZO.dir/Menu/Menu.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitrovic/CLionProjects/SDIZO/Menu/Menu.cpp || cmake_object_order_depends_target_SDIZO
-  DEP_FILE = CMakeFiles/SDIZO.dir/Menu/Menu.cpp.o.d
+build CMakeFiles/SDIZO.dir/Menu/ArrayMenu/ArrayMenu.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitrovic/CLionProjects/SDIZO/Menu/ArrayMenu/ArrayMenu.cpp || cmake_object_order_depends_target_SDIZO
+  DEP_FILE = CMakeFiles/SDIZO.dir/Menu/ArrayMenu/ArrayMenu.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -std=gnu++2a
   OBJECT_DIR = CMakeFiles/SDIZO.dir
-  OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir/Menu
+  OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir/Menu/ArrayMenu
 
 build CMakeFiles/SDIZO.dir/DataTypes/LinkedList/LinkedList.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitrovic/CLionProjects/SDIZO/DataTypes/LinkedList/LinkedList.cpp || cmake_object_order_depends_target_SDIZO
   DEP_FILE = CMakeFiles/SDIZO.dir/DataTypes/LinkedList/LinkedList.cpp.o.d
@@ -102,6 +102,24 @@ build CMakeFiles/SDIZO.dir/DataTypes/Heap/Heap.cpp.o: CXX_COMPILER__SDIZO_Debug 
   OBJECT_DIR = CMakeFiles/SDIZO.dir
   OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir/DataTypes/Heap
 
+build CMakeFiles/SDIZO.dir/Menu/ListMenu/LinkedListMenu.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitrovic/CLionProjects/SDIZO/Menu/ListMenu/LinkedListMenu.cpp || cmake_object_order_depends_target_SDIZO
+  DEP_FILE = CMakeFiles/SDIZO.dir/Menu/ListMenu/LinkedListMenu.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -std=gnu++2a
+  OBJECT_DIR = CMakeFiles/SDIZO.dir
+  OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir/Menu/ListMenu
+
+build CMakeFiles/SDIZO.dir/Menu/HeapMenu/HeapMenu.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitrovic/CLionProjects/SDIZO/Menu/HeapMenu/HeapMenu.cpp || cmake_object_order_depends_target_SDIZO
+  DEP_FILE = CMakeFiles/SDIZO.dir/Menu/HeapMenu/HeapMenu.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -std=gnu++2a
+  OBJECT_DIR = CMakeFiles/SDIZO.dir
+  OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir/Menu/HeapMenu
+
+build CMakeFiles/SDIZO.dir/Menu/MainMenu/MainMenu.cpp.o: CXX_COMPILER__SDIZO_Debug /Users/lukamitrovic/CLionProjects/SDIZO/Menu/MainMenu/MainMenu.cpp || cmake_object_order_depends_target_SDIZO
+  DEP_FILE = CMakeFiles/SDIZO.dir/Menu/MainMenu/MainMenu.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -std=gnu++2a
+  OBJECT_DIR = CMakeFiles/SDIZO.dir
+  OBJECT_FILE_DIR = CMakeFiles/SDIZO.dir/Menu/MainMenu
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target SDIZO
@@ -110,7 +128,7 @@ build CMakeFiles/SDIZO.dir/DataTypes/Heap/Heap.cpp.o: CXX_COMPILER__SDIZO_Debug 
 #############################################
 # Link the executable SDIZO
 
-build SDIZO: CXX_EXECUTABLE_LINKER__SDIZO_Debug CMakeFiles/SDIZO.dir/main.cpp.o CMakeFiles/SDIZO.dir/DataTypes/Array/Array.cpp.o CMakeFiles/SDIZO.dir/Menu/Menu.cpp.o CMakeFiles/SDIZO.dir/DataTypes/LinkedList/LinkedList.cpp.o CMakeFiles/SDIZO.dir/DataTypes/Heap/Heap.cpp.o
+build SDIZO: CXX_EXECUTABLE_LINKER__SDIZO_Debug CMakeFiles/SDIZO.dir/main.cpp.o CMakeFiles/SDIZO.dir/DataTypes/Array/Array.cpp.o CMakeFiles/SDIZO.dir/Menu/ArrayMenu/ArrayMenu.cpp.o CMakeFiles/SDIZO.dir/DataTypes/LinkedList/LinkedList.cpp.o CMakeFiles/SDIZO.dir/DataTypes/Heap/Heap.cpp.o CMakeFiles/SDIZO.dir/Menu/ListMenu/LinkedListMenu.cpp.o CMakeFiles/SDIZO.dir/Menu/HeapMenu/HeapMenu.cpp.o CMakeFiles/SDIZO.dir/Menu/MainMenu/MainMenu.cpp.o
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk
   OBJECT_DIR = CMakeFiles/SDIZO.dir
   POST_BUILD = :

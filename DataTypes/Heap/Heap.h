@@ -9,7 +9,8 @@
 #include "../LinkedList/LinkedList.h"
 
 class Heap {
-    Array heapArray;
+    Array *heapArray;
+    int size;
 public:
     Heap();
     Heap(std::string filename);
@@ -23,7 +24,6 @@ public:
 
     int getRootValue();
     void printAsArray ();
-    void printAsTree();
     void swap(int a, int b);
 
     int getParent(unsigned int index);

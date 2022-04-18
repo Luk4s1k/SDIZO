@@ -94,13 +94,19 @@ void LinkedList::removeFront() {
 }
 
 void LinkedList::removeBack() {
-    if (tail == nullptr) {
+    std::cout << "Head has value of " << head->value << " tail : " << tail->value << " len: " << length <<  std::endl;
+    if (length == 0) {
         std::cout << "Invalid operation: list is empty" << std::endl;
         return;
     }
     if(head == tail){
         head = nullptr;
         delete tail;
+        length--;
+        std::cout << "length AFTER  removalino = " << length << std::endl;
+        std::cout << "HEAD : " << head << " val :"<< head->value << std::endl;
+        std::cout << "TAIL : " << tail << " val :"<< tail->value << std::endl;
+
         return;
     }
     ListNode *newNode = tail->prev;
@@ -108,6 +114,7 @@ void LinkedList::removeBack() {
     delete tail;
     tail = newNode;
     length--;
+    std::cout << "length AFTER  removal = " << length << std::endl;
 }
 
 void LinkedList::removeAt(unsigned int position) {
@@ -139,18 +146,24 @@ int LinkedList::find(int value) {
         }
         temp= temp->next;
     }
+    return -1;
 }
 
 void LinkedList::print() {
+    if (head == nullptr) {
+        std::cout << "LIST IS EMPTY " << std::endl;
+        return;
+    }else {
         ListNode *temp = head;
         if (temp->prev == nullptr)
             std::cout << "nullptr -> ";
-        for (int i = 0; i < this->length; i++){
+        for (int i = 0; i < this->length; i++) {
             std::cout << temp->value << " -> ";
-            temp= temp->next;
+            temp = temp->next;
         }
         if (temp == nullptr)
             std::cout << "nullptr" << std::endl;
+    }
 }
 
 LinkedList::~LinkedList() {
