@@ -46,13 +46,13 @@ void Array::push(int index, int value) {
         } else if (index == size - 1) {
             push_back(value);
         } else {
-            int *newArr = reinterpret_cast<int *>(malloc(size * sizeof(int)));
+            int *newArr = new int[size + 1];
             copy(newArr, head, index);
             copy(&newArr[index + 1], &head[index], size - index);
             newArr[index] = value;
             delete[] head;
             head = newArr;
-            ++size;
+            size++;
         }
     }
 }
@@ -63,10 +63,10 @@ void Array::push_back(int value) {
         size++;
     }
     else {
-        int *newArr = reinterpret_cast<int *>(malloc(size * sizeof(int)));
+        int *newArr = new int[size + 1];
         copy(newArr, head, size);
         newArr[size] = value;
-        delete[] head;
+        delete [] head;
         head = newArr;
         size++;
     }
@@ -78,12 +78,12 @@ void Array::push_front(int value) {
         size++;
     }
     else {
-        int *newArr = reinterpret_cast<int *>(malloc(size * sizeof(int)));
+        int *newArr = new int[size];
         copy(&newArr[1], head, size);
         newArr[0] = value;
         delete [] head;
         head = newArr;
-        ++size;
+        size++;
     }
 }
 
@@ -96,7 +96,7 @@ void Array::pop(int index) {
         return;
     }
     else {
-        int *newArr = reinterpret_cast<int *>(malloc((size-1) * sizeof(int)));
+        int *newArr = new int[size-1];
         copy(newArr, head, index);
         copy(&newArr[index], &head[index+1], size - index );
         delete[] head;
@@ -110,7 +110,7 @@ void Array::pop_back() {
         return;
     }
     else {
-        int *newArr = reinterpret_cast<int *>(malloc((size-1) * sizeof(int)));
+        int *newArr = new int[size-1];
         copy(newArr, head, size - 1 );
         delete[] head;
         head = newArr;
@@ -124,7 +124,7 @@ void Array::pop_front() {
         return;
     }
     else {
-        int *newArr = reinterpret_cast<int *>(malloc((size-1) * sizeof(int)));
+        int *newArr = new int[size-1];
         copy(newArr, &head[1], size - 1 );
         delete[] head;
         head = newArr;
@@ -152,7 +152,7 @@ int *Array::getPointer(int pos) {
 }
 
 Array::~Array() {
-    delete[] head;
+    delete [] head;
 }
 
 void Array::copy(int *destination, int *source, int numberOfElems) {
