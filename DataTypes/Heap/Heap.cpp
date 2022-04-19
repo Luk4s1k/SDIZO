@@ -13,6 +13,10 @@ Heap::Heap() {
     heapArray = new Array();
 }
 
+Heap::Heap(int heapsize){
+    heapArray = new Array(heapsize);
+}
+
 Heap::Heap(std::string filename) {
     heapArray = new Array(filename);
 }

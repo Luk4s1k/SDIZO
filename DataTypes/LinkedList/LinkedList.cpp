@@ -11,6 +11,14 @@ LinkedList::LinkedList() {
     length = 0;
 }
 
+LinkedList::LinkedList(int size) {
+    head = tail = nullptr;
+    length = 0;
+    for (int i = 0;i < size;i++){
+        insertBack(0);
+    }
+}
+
 LinkedList::LinkedList(std::string filename) {
     std::ifstream file;
     int arraySizeFromFile;
@@ -75,7 +83,7 @@ void LinkedList::insertAt(unsigned int position, int value) {
 }
 
 void LinkedList::removeFront() {
-    if (head == nullptr) {
+    if (length == 0 || head == nullptr || tail == nullptr) {
         std::cout << "Invalid operation: list is empty" << std::endl;
         return;
     }
@@ -94,8 +102,7 @@ void LinkedList::removeFront() {
 }
 
 void LinkedList::removeBack() {
-    std::cout << "Head has value of " << head->value << " tail : " << tail->value << " len: " << length <<  std::endl;
-    if (length == 0) {
+    if (length == 0 || head == nullptr || tail == nullptr) {
         std::cout << "Invalid operation: list is empty" << std::endl;
         return;
     }
@@ -103,10 +110,6 @@ void LinkedList::removeBack() {
         head = nullptr;
         delete tail;
         length--;
-        std::cout << "length AFTER  removalino = " << length << std::endl;
-        std::cout << "HEAD : " << head << " val :"<< head->value << std::endl;
-        std::cout << "TAIL : " << tail << " val :"<< tail->value << std::endl;
-
         return;
     }
     ListNode *newNode = tail->prev;
@@ -114,7 +117,6 @@ void LinkedList::removeBack() {
     delete tail;
     tail = newNode;
     length--;
-    std::cout << "length AFTER  removal = " << length << std::endl;
 }
 
 void LinkedList::removeAt(unsigned int position) {

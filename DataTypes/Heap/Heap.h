@@ -13,6 +13,7 @@ class Heap {
     int size;
 public:
     Heap();
+    Heap(int heapsize);
     Heap(std::string filename);
     ~Heap();
 

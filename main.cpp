@@ -1,13 +1,19 @@
 #include <iostream>
 #include "Menu/MainMenu/MainMenu.h"
+#include "TimeMeasurments/ListMeasurments/MeasureListTime.h"
 #include "TimeMeasurments/ArrayMeasurments/MeasureArrayTime.h"
+#include "TimeMeasurments/HeapMeasurments/MeasureHeapTime.h"
 
 int main() {
-//    MainMenu *menu = new MainMenu();
-//    menu->mainMenuMode();
-    MeasureArrayTime *ma = new MeasureArrayTime();
+    //    MainMenu *menu = new MainMenu();
+    //    menu->mainMenuMode();
+    //    MeasureListTime *ma = new MeasureListTime();
+    //    ma->executeAllTests();
+    MeasureListTime *ma = new MeasureListTime();
     ma->executeAllTests();
-    //delete ma;
+//    MeasureHeapTime *ma = new MeasureHeapTime();
+//    ma->executeAllTests();
+
 
     return 0;
 }

@@ -15,6 +15,7 @@ private:
      int length;
 public:
      LinkedList();
+     LinkedList(int size);
      LinkedList( std::string filename);
      ~LinkedList();
 
