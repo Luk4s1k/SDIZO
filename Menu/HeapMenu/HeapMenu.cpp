@@ -34,15 +34,16 @@ void HeapMenu::heapOperationsMenuMode() {
     std::cout << " 1 - Add new key"<< std::endl;
     std::cout << " 2 - Show root value"<< std::endl;
     std::cout << " 3 - Remove root"<< std::endl;
-    std::cout << " 4 - Search key"<< std::endl;
-    std::cout << " 5 - Print in tree-type format"<< std::endl;
-    std::cout << " 6 - EXIT "<< std::endl;
+    std::cout << " 4 - Remove element"<< std::endl;
+    std::cout << " 5 - Search key"<< std::endl;
+    std::cout << " 6 - Print in tree-type format"<< std::endl;
+    std::cout << " 7 - EXIT "<< std::endl;
     std::cin >> HeapOperationOption;
     switch(HeapOperationOption){
         default:
             std::cout << "INVALID CHOICE" << std::endl;
             heapOperationsMenuMode();
-        case 6:
+        case 7:
             return;
         case 1:
             std::cout << "Value to add:";
@@ -63,6 +64,12 @@ void HeapMenu::heapOperationsMenuMode() {
             heapOperationsMenuMode();
             break;
         case 4:
+            std::cout << "Index of element to be deleted" << std::endl;
+            std::cin >> index;
+            heapToOperateWith->removeElement(index);
+            heapToOperateWith->printAsArray();
+            heapOperationsMenuMode();
+        case 5:
             std::cout << "Value to search:";
             std::cin >> value;
             positionFound = heapToOperateWith->search(0,value);
@@ -71,7 +78,7 @@ void HeapMenu::heapOperationsMenuMode() {
             heapToOperateWith->printAsArray();
             heapOperationsMenuMode();
             break;
-        case 5:
+        case 6:
             heapToOperateWith->print_tree();
             break;
 

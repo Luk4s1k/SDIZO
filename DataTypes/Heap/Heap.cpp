@@ -76,6 +76,10 @@ int Heap::getRootValue() {
 void Heap::printAsArray() {
     heapArray->print();
 }
+/*Ta czesc odpowiada za wyświetlenie kopca w postaci dzewa
+ * --------------------------------------------------------
+ *
+ */
 std::string do_padding (unsigned index, unsigned mlength){
     std::string padding;
     if (int((index-1)/2) != 0){
@@ -105,7 +109,7 @@ void Heap::printer (unsigned index, unsigned mlength){
         }
     }
 }
-
+// --------------------------------------------------------
 
 void Heap::print_tree (){
     unsigned mlength = 0;
@@ -160,5 +164,10 @@ bool Heap::search(int startPos, int value) {
 
 Heap::~Heap() {
     delete heapArray;
+}
+
+void Heap::removeElement(int position) {
+    heapArray->pop(position);
+    heapifyFromEnd(position-1);
 }
 

@@ -22,6 +22,7 @@ public:
 
     void addElement(int value);
     int extractRoot();
+    void removeElement(int value);
 
     int getRootValue();
     void printAsArray ();

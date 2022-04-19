@@ -38,7 +38,7 @@ void MeasureHeapTime::measureRemoveElement(int arraySize, int measurmentsAmount)
     for (int i = 0; i < measurmentsAmount; i++){
         int value = rand()%1000;
         time.measureStart();
-        testHeap->extractRoot();
+        testHeap->removeElement(4);
         time.measureEnd();
         testHeap->addElement(value);
         averagetime += time.getTime();
@@ -73,9 +73,17 @@ void MeasureHeapTime::measureSearch(int arraySize, int measurmentsAmount) {
 }
 
 void MeasureHeapTime::executeAllTests() {
-    for (int i = 10; i < 1000000; i *= 10){
+    for (int i = 10; i <= 10000; i *= 10){
         measureAddElement(i,50);
         measureRemoveElement(i,50);
         measureSearch(i,50);
     }
+    for (int i = 20000; i <= 60000; i *= 2){
+        measureAddElement(i,50);
+        measureRemoveElement(i,50);
+        measureSearch(i,50);
+    }
+    measureAddElement(100000,50);
+    measureRemoveElement(100000,50);
+    measureSearch(100000,50);
 }
