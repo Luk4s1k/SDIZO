@@ -30,11 +30,10 @@ void MainMenu::mainMenuMode() {
             mainMenuMode();
             break;
         case 4:
+            rbtreeMenu = new RedBlackTreeMenu();
+            rbtreeMenu->treeCreationMenuMode();
+            mainMenuMode();
             break;
-//            rbtreeMenu = new RedBlackTreeMenu();
-//            rbtreeMenu->rbTreeCreationMenuMode();
-//            mainMenuMode();
-//            break;
         case 5:
             return;
     }

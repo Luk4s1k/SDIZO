@@ -7,6 +7,7 @@
 #include "../ArrayMenu/ArrayMenu.h"
 #include "../ListMenu/LinkedListMenu.h"
 #include "../HeapMenu/HeapMenu.h"
+#include "../RedBlackTreeMenu/RedBlackTreeMenu.h"
 
 class MainMenu {
 public:
@@ -15,6 +16,7 @@ private:
     ArrayMenu *arrayMenu;
     LinkedListMenu *listMenu;
     HeapMenu *heapMenu;
+    RedBlackTreeMenu * rbtreeMenu;
 
 };
 

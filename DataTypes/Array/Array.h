@@ -12,7 +12,7 @@ class Array {
 public:
     Array();
     explicit Array(int size);
-    explicit Array(std::string filename);
+    explicit Array(const std::string &filename);
     ~Array();
 
     void push(int index, int value);
@@ -24,17 +24,16 @@ public:
     void pop_front();
 
     void print();
-    void rprint();
 
     int search(int value);
     void modify(int index, int value);
 
-    void copy(int* destination, int* source, int numberOfElems);
-    int* getPointer(int pos);
-    int getSize();
+    void copy(int* destination, const int* source, int numberOfElems);
+    int getSize() const;
     int *at(int pos);
 
     int &operator[](int i);
+private:
     int size;
     int *head;
 };

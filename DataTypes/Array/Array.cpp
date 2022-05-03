@@ -6,24 +6,25 @@
 
 Array::Array() {
     size = 0;
-    head = new int[1];
+    head = new int[1]; // TODO: FIX to 0 eleme
 }
 Array::Array(int size) {
     this->size = size;
     head = new int[1];
 }
 
-Array::Array(std::string filename) {
+Array::Array(const std::string &filename) {
     std::ifstream file;
-    int arraySizeFromFile;
-    int readVal, i;
+    this->size = 0;
+    int arraySizeFromFile = 0;
+    int readVal = 0, i = 0;
     file.open(filename);
     if(file.is_open()){
         file >> arraySizeFromFile;
-        head = new int[arraySizeFromFile];
+        this->head = new int[arraySizeFromFile];
         while(file.good()){
             file >> readVal;
-            push(i,readVal);
+            this->push(i,readVal);
             i++;
         }
     }
@@ -143,36 +144,22 @@ void Array::print() {
     std::cout << std::endl;
 }
 
-int Array::getSize() {
+int Array::getSize() const{
     return size;
 }
 
-int *Array::getPointer(int pos) {
-    return &head[pos];
-}
 
 Array::~Array() {
     delete [] head;
 }
 
-void Array::copy(int *destination, int *source, int numberOfElems) {
+void Array::copy(int *destination, const int *source, int numberOfElems) {
     for (int i = 0; i < numberOfElems; i++) {
         destination[i] = source[i];
     }
 
 }
 
-void Array::rprint() {
-    if (size == 0 ){
-        std::cout << "EMPTY ARRAY" << std::endl;
-        return;
-    }
-    for (int i = size - 1 ; i >= 0; i--){
-        std::cout << head[i] << " ";
-    }
-    std::cout << std::endl;
-
-}
 
 int Array::search(int value) {
     for (int i = 0; i < size; i++){

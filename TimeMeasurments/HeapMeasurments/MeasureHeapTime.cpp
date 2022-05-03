@@ -63,7 +63,7 @@ void MeasureHeapTime::measureSearch(int arraySize, int measurmentsAmount) {
     }
     for (int i = 0; i < measurmentsAmount; i++){
         time.measureStart();
-        testHeap->search(0,searchVal);
+        testHeap->search(searchVal);
         time.measureEnd();
         averagetime += time.getTime();
     }

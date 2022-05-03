@@ -19,12 +19,15 @@ Heap::Heap(int heapsize){
 
 Heap::Heap(std::string filename) {
     heapArray = new Array(filename);
+    heapifyFromStart(0);
 }
 
 void Heap::heapifyFromStart(int index) {
     int left = getLeftChild(index);
     int right = getRightChild(index);
-
+    if(left >=heapArray->getSize() || right >=heapArray->getSize()){
+        heapifyFromStart(index - 1);
+    }
     int largest = index;
 
     if (left < heapArray->getSize() && *heapArray->at(left) > *heapArray->at(index)) {
@@ -38,7 +41,9 @@ void Heap::heapifyFromStart(int index) {
     if (largest != index)
     {
         swap(index, largest);
-        heapifyFromStart(largest);
+        heapifyFromStart(getLeftChild(index));
+        heapifyFromStart(getRightChild(index));
+        heapifyFromStart(0);
     }
 }
 
@@ -76,6 +81,52 @@ int Heap::getRootValue() {
 void Heap::printAsArray() {
     heapArray->print();
 }
+
+
+bool Heap::checkHeap(){
+    for (int i = 0; i < getParent(heapArray->getSize() - 1); i++){
+        if(*heapArray->at(i) < *heapArray->at(getLeftChild(i))){
+            return false;
+        }else if (*heapArray->at(i) < *heapArray->at(getRightChild(i))){
+            return false;
+        }
+    }
+    return true;
+}
+
+int Heap::getParent(unsigned int index) {
+    return (index - 1) / 2;
+}
+
+int Heap::getLeftChild(unsigned int index) {
+    return (2 * index + 1);
+}
+
+int Heap::getRightChild(unsigned int index) {
+    return (2 * index + 2);
+}
+
+
+void Heap::swap(int a, int b)
+{
+    int temp = *heapArray->at(a);
+    *heapArray->at(a) = *heapArray->at(b);
+    *heapArray->at(b) = temp;
+}
+
+bool Heap::search(int value) {
+    return heapArray->search(value);
+}
+
+Heap::~Heap() {
+    delete heapArray;
+}
+
+void Heap::removeElement(int position) {
+    heapArray->pop(position);
+    heapifyFromEnd(position-1);
+}
+
 /*Ta czesc odpowiada za wyświetlenie kopca w postaci dzewa
  * --------------------------------------------------------
  *
@@ -109,7 +160,6 @@ void Heap::printer (unsigned index, unsigned mlength){
         }
     }
 }
-// --------------------------------------------------------
 
 void Heap::print_tree (){
     unsigned mlength = 0;
@@ -121,53 +171,7 @@ void Heap::print_tree (){
     }
     std::cout <<  std::string(mlength- std::to_string(*heapArray->at(0)).size(),' ');
     printer(0,mlength);
+    std::cout << std::endl;
 }
-
-int Heap::getParent(unsigned int index) {
-    return (index - 1) / 2;
-}
-
-int Heap::getLeftChild(unsigned int index) {
-    return (2 * index + 1);
-}
-
-int Heap::getRightChild(unsigned int index) {
-    return (2 * index + 2);
-}
-
-
-void Heap::swap(int a, int b)
-{
-    int temp = *heapArray->at(a);
-    *heapArray->at(a) = *heapArray->at(b);
-    *heapArray->at(b) = temp;
-}
-
-bool Heap::search(int startPos, int value) {
-    unsigned int left = 2 * startPos + 1;
-    unsigned int right = 2 * startPos + 1;
-    if(*heapArray->at(startPos) == value){
-        return true;
-    }
-    if(left > heapArray->getSize()){
-        return false;
-    }
-    bool isFounded = search(left, value);
-    if (isFounded){
-        return true;
-    }
-    if(right > heapArray->getSize()){
-        return false;
-    }
-    return search(right, value);
-}
-
-Heap::~Heap() {
-    delete heapArray;
-}
-
-void Heap::removeElement(int position) {
-    heapArray->pop(position);
-    heapifyFromEnd(position-1);
-}
+// --------------------------------------------------------
 

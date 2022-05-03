@@ -1,19 +1,14 @@
 #include <iostream>
 #include "Menu/MainMenu/MainMenu.h"
-#include "TimeMeasurments/ListMeasurments/MeasureListTime.h"
-#include "TimeMeasurments/ArrayMeasurments/MeasureArrayTime.h"
-#include "TimeMeasurments/HeapMeasurments/MeasureHeapTime.h"
+#include "DataTypes/PrintHelper.h"
+
 
 int main() {
 //        MainMenu *menu = new MainMenu();
 //        menu->mainMenuMode();
-    //    MeasureListTime *ma = new MeasureListTime();
-    //    ma->executeAllTests();
-//    MeasureListTime *ma = new MeasureListTime();
-//    ma->executeAllTests();
-    MeasureHeapTime *ma = new MeasureHeapTime();
-    ma->executeAllTests();
+    RBTree *tree = new RBTree("/Users/lukamitrovic/Desktop/testdatafile.txt");
+    PrintHelper *p = new PrintHelper(tree);
+    p->test();
 
-
-    return 0;
+        return 0;
 }

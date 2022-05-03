@@ -19,6 +19,7 @@ void HeapMenu::heapCreationMenuMode() {
         std::cout << "FILE PATH:";
         std::cin >> filename;
         heapToOperateWith= new Heap(filename);
+        heapToOperateWith->printAsArray();
         heapOperationsMenuMode();
     }else {
         std::cout << "INVALID OPTION !!!" << std::endl;
@@ -49,6 +50,7 @@ void HeapMenu::heapOperationsMenuMode() {
             std::cout << "Value to add:";
             std::cin >> value;
             heapToOperateWith->addElement(value);
+            std::cout << "MAX HEAP CHECK:" << heapToOperateWith->checkHeap() << std::endl;
             heapToOperateWith->printAsArray();
             heapOperationsMenuMode();
             break;
@@ -60,6 +62,7 @@ void HeapMenu::heapOperationsMenuMode() {
             std::cout << "Root with value :" << heapToOperateWith->getRootValue();
             heapToOperateWith->extractRoot();
             std::cout << " Is extracted!" << std::endl;
+            std::cout << "MAX HEAP CHECK:" << heapToOperateWith->checkHeap() << std::endl;
             heapToOperateWith->printAsArray();
             heapOperationsMenuMode();
             break;
@@ -67,12 +70,13 @@ void HeapMenu::heapOperationsMenuMode() {
             std::cout << "Index of element to be deleted" << std::endl;
             std::cin >> index;
             heapToOperateWith->removeElement(index);
+            std::cout << "MAX HEAP CHECK:" << heapToOperateWith->checkHeap() << std::endl;
             heapToOperateWith->printAsArray();
             heapOperationsMenuMode();
         case 5:
             std::cout << "Value to search:";
             std::cin >> value;
-            positionFound = heapToOperateWith->search(0,value);
+            positionFound = heapToOperateWith->search(value);
             if (positionFound == false) {std::cout << "NOT FOUND" << std::endl;}
             else {std::cout << "ELEMENT FOUND " << std::endl;}
             heapToOperateWith->printAsArray();
@@ -80,6 +84,7 @@ void HeapMenu::heapOperationsMenuMode() {
             break;
         case 6:
             heapToOperateWith->print_tree();
+            heapOperationsMenuMode();
             break;
 
     }
