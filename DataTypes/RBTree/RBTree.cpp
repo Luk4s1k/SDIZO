@@ -6,12 +6,12 @@
 #include <fstream>
 
 RBTree::RBTree() {
-    nullNode = new Node();
-    nullNode->color = 0;
-    nullNode->leftSon = nullptr;
-    nullNode->rightSon = nullptr;
-    nullNode->parent = nullptr;
-    root = nullNode;
+    this->nullNode = new Node();
+    this->nullNode->color = 0;
+    this->nullNode->leftSon = nullNode;
+    this->nullNode->rightSon = nullNode;
+    this->nullNode->parent = nullNode;
+    this->root = nullNode;
 }
 
 RBTree::~RBTree() {
@@ -56,10 +56,10 @@ void RBTree::rotateRight(Node *x) {
 
 
 Node *RBTree::postOrder(Node *node) {
-    if (node == nullptr)
+    if (node == nullNode)
         return node;
     postOrder(node->leftSon);
-    postOrder(node->leftSon);
+    postOrder(node->rightSon);
    return node;
 }
 
@@ -121,7 +121,6 @@ void RBTree::fixAfterRemoval(Node* x) {
         if (x == x->parent->leftSon) {
             s = x->parent->rightSon;
             if (s->color == 1) {
-                // przypadek 1
                 s->color = 0;
                 x->parent->color = 1;
                 rotateLeft(x->parent);
@@ -129,19 +128,15 @@ void RBTree::fixAfterRemoval(Node* x) {
             }
 
             if (s->leftSon->color == 0 && s->rightSon->color == 0) {
-                // przypadek 2
                 s->color = 1;
                 x = x->parent;
             } else {
                 if (s->rightSon->color == 0) {
-                    // przypadek 3
                     s->leftSon->color = 0;
                     s->color = 1;
                     rotateRight(s);
                     s = x->parent->rightSon;
                 }
-
-                // przypadek 4
                 s->color = x->parent->color;
                 x->parent->color = 0;
                 s->rightSon->color = 0;
@@ -151,7 +146,6 @@ void RBTree::fixAfterRemoval(Node* x) {
         } else {
             s = x->parent->leftSon;
             if (s->color == 1) {
-                // przypadek 1
                 s->color = 0;
                 x->parent->color = 1;
                 rotateRight(x->parent);
@@ -159,19 +153,15 @@ void RBTree::fixAfterRemoval(Node* x) {
             }
 
             if (s->rightSon->color == 0 && s->rightSon->color == 0) {
-//                przypadek 2
                 s->color = 1;
                 x = x->parent;
             } else {
                 if (s->leftSon->color == 0) {
-                    // przypadek 3
                     s->rightSon->color = 0;
                     s->color = 1;
                     rotateLeft(s);
                     s = x->parent->leftSon;
                 }
-
-                // przypadek 4
                 s->color = x->parent->color;
                 x->parent->color = 0;
                 s->leftSon->color = 0;
@@ -234,40 +224,34 @@ void RBTree::fixAfterInsertion(Node * k) {
         Node* u = new Node();
         while (k->parent != nullNode && k->parent->color == 1) {
             if (k->parent == k->parent->parent->rightSon) {
-                u = k->parent->parent->leftSon; // uncle
+                u = k->parent->parent->leftSon;
                 if (u->color == 1) {
-                    // case 3.1
                     u->color = 0;
                     k->parent->color = 0;
                     k->parent->parent->color = 1;
                     k = k->parent->parent;
                 } else {
                     if (k == k->parent->leftSon) {
-                        // case 3.2.2
                         k = k->parent;
                         rotateRight(k);
                     }
-                    // case 3.2.1
                     k->parent->color = 0;
                     k->parent->parent->color = 1;
                     rotateLeft(k->parent->parent);
                 }
             } else {
-                u = k->parent->parent->rightSon; // uncle
+                u = k->parent->parent->rightSon;
 
                 if (u->color == 1) {
-                    // mirror case 3.1
                     u->color = 0;
                     k->parent->color = 0;
                     k->parent->parent->color = 1;
                     k = k->parent->parent;
                 } else {
                     if (k == k->parent->rightSon) {
-                        // mirror case 3.2.2
                         k = k->parent;
                         rotateLeft(k);
                     }
-                    // mirror case 3.2.1
                     k->parent->color = 0;
                     k->parent->parent->color = 0;
                     rotateRight(k->parent->parent);
@@ -300,13 +284,13 @@ Node* RBTree::minimum(Node* node) {
 }
 
 
-void RBTree::print() {
-    //Array *a;
-    //print_tree();
-}
-
-
 RBTree::RBTree(const std::string &filename) {
+    this->nullNode = new Node();
+    this->nullNode->color = 0;
+    this->nullNode->leftSon = nullNode;
+    this->nullNode->rightSon = nullNode;
+    this->nullNode->parent = nullNode;
+    this->root = nullNode;
     std::ifstream file;
     int treeSizeFormFile;
     int readVal;
@@ -339,6 +323,30 @@ Node *RBTree::search(Node *node, int value) {
 
 Node *RBTree::getNullNode() {
     return this->nullNode;
+}
+
+void RBTree::print(const std::string& prefix, const Node* node, bool isLeft)
+{
+    if( node != nullNode )
+    {
+        std::cout << prefix;
+
+        std::cout << (isLeft ? "├──" : "└──" );
+
+        // print the value of the node
+        if(node->color == 0){
+            std::cout << node->value << " BLACK "<< std::endl;
+        }else {
+            std::cout << node->value << " RED "<< std::endl;
+        }
+        print( prefix + (isLeft ? "│   " : "    "), node->leftSon, true);
+        print( prefix + (isLeft ? "│   " : "    "), node->rightSon, false);
+    }
+}
+
+void RBTree::print(const Node* node)
+{
+    print("", node, false);
 }
 
 

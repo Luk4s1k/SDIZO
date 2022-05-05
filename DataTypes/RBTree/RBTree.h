@@ -30,9 +30,10 @@ public:
 
     void swap(Node * a, Node* b);
     Node * minimum(Node* node);
-    void print();
     Node* getRoot();
     Node* getNullNode();
+    void print(const std::string& prefix, const Node* node, bool isLeft);
+    void print(const Node* node);
 private:
     Node *root;
     Node *nullNode;

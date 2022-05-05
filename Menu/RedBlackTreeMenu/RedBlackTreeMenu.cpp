@@ -18,7 +18,7 @@ void RedBlackTreeMenu::treeCreationMenuMode() {
         std::cout << "FILE PATH:";
         std::cin >> filename;
         treeToOperateWith = new RBTree(filename);
-        treeToOperateWith->print();
+        treeToOperateWith->print(treeToOperateWith->getRoot());
         treeOperationsMenuMode();
     }else {
         std::cout << "INVALID OPTION !!!" << std::endl;
@@ -45,14 +45,14 @@ void RedBlackTreeMenu::treeOperationsMenuMode() {
             std::cout << "Value to add:";
             std::cin >> value;
             treeToOperateWith->insertElement(value);
-            treeToOperateWith->print();
+            treeToOperateWith->print(treeToOperateWith->getRoot());
             treeOperationsMenuMode();
             break;
         case 2:
             std::cout << "Value to remove:";
             std::cin >> value;
             treeToOperateWith->removeElement(treeToOperateWith->getRoot(),value);
-            treeToOperateWith->print();
+            treeToOperateWith->print(treeToOperateWith->getRoot());
             treeOperationsMenuMode();
             break;
         case 3:
@@ -61,7 +61,7 @@ void RedBlackTreeMenu::treeOperationsMenuMode() {
             auto positionOfFoundElement = treeToOperateWith->search(treeToOperateWith->getRoot(),value);
             if (positionOfFoundElement == treeToOperateWith->getNullNode()) {std::cout << "NOT FOUND" << std::endl;}
             else {std::cout << "ELEMENT APPEARS ON TREE" << std::endl;}
-            treeToOperateWith->print();
+            treeToOperateWith->print(treeToOperateWith->getRoot());
             treeOperationsMenuMode();
             break;
     }
