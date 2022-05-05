@@ -6,7 +6,7 @@
 
 Array::Array() {
     size = 0;
-    head = new int[1]; // TODO: FIX to 0 eleme
+    head = nullptr;
 }
 Array::Array(int size) {
     this->size = size;
@@ -38,6 +38,7 @@ void Array::push(int index, int value) {
         return;
     }
     else if (size == 0) {
+        head = new int[1];
         head[0] = value;
         size++;
     }
@@ -60,6 +61,7 @@ void Array::push(int index, int value) {
 
 void Array::push_back(int value) {
     if (size == 0) {
+        head = new int[1];
         head[0] = value;
         size++;
     }
@@ -75,6 +77,7 @@ void Array::push_back(int value) {
 
 void Array::push_front(int value) {
     if (size == 0) {
+        head = new int[1];
         head[0] = value;
         size++;
     }

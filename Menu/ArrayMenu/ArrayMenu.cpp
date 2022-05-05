@@ -18,6 +18,7 @@ void ArrayMenu::arrayCreationMenuMode() {
         std::cout << "FILE PATH:";
         std::cin >> filename;
         arrayToOperateWith= new Array(filename);
+        arrayToOperateWith->print();
         arrayOperationsMenuMode();
     }else {
         std::cout << "INVALID OPTION !!!" << std::endl;

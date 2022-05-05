@@ -19,6 +19,7 @@ void LinkedListMenu::listCreationMenuMode() {
         std::cout << "FILE PATH:";
         std::cin >> filename;
         listToOperateWith= new LinkedList(filename);
+        listToOperateWith->print();
         listOperationsMenuMode();
     }else {
         std::cout << "INVALID OPTION !!!" << std::endl;
@@ -36,15 +37,14 @@ void LinkedListMenu::listOperationsMenuMode() {
     std::cout << " 4 - Delete element from the front"<< std::endl;
     std::cout << " 5 - Delete element from the back"<< std::endl;
     std::cout << " 6 - Delete element from position"<< std::endl;
-    std::cout << " 7 - Change element"<< std::endl;
-    std::cout << " 8 - Search element "<< std::endl;
-    std::cout << " 9 - EXIT "<< std::endl;
+    std::cout << " 7 - Search element "<< std::endl;
+    std::cout << " 8 - EXIT "<< std::endl;
     std::cin >> ListOperationOption;
     switch(ListOperationOption){
         default:
             std::cout << "INVALID CHOICE" << std::endl;
             listOperationsMenuMode();
-        case 9:
+        case 8:
             return;
         case 1:
             std::cout << "Value to add:";
@@ -87,15 +87,6 @@ void LinkedListMenu::listOperationsMenuMode() {
             listOperationsMenuMode();
             break;
         case 7:
-            std::cout << "Element to change is on position:";
-            std::cin >> index;
-            std::cout << "New value:";
-            std::cin >> value;
-            listToOperateWith->getElem(index)->value = value;
-            listToOperateWith->print();
-            listOperationsMenuMode();
-            break;
-        case 8:
             std::cout << "Value to search:";
             std::cin >> value;
             int positionOfFoundElement = listToOperateWith->find(value);
