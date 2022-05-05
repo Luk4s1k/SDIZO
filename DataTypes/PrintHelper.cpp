@@ -18,9 +18,9 @@ void PrintHelper::printCurrentLevel(Node *root, int level) {
     if (root == tree->getNullNode())
         return;
     if (level == 1){
-        if(root->color == RED){
+        if(root->color == 1){
             this->arr->push_back(root->value);
-        }else if(root->color == BLACK){
+        }else if(root->color == 0){
             this->arr->push_back(root->value * (-1));
         }
     }

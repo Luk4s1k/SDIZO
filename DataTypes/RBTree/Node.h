@@ -5,15 +5,15 @@
 #ifndef SDIZO_NODE_H
 #define SDIZO_NODE_H
 
-enum COLOR {RED,BLACK};
+
 struct Node{
     int value;
     Node* leftSon;
     Node* rightSon;
     Node* parent;
-    COLOR color;
-//    Node(Node* parent, int value, Node* left, Node* right):parent(parent),value(value),leftSon(left), rightSon(right){};
-//    Node();
+    int color;
+    Node();
+
 
 };
 

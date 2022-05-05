@@ -13,7 +13,7 @@ class RBTree {
 public:
     RBTree();
     ~RBTree();
-    explicit RBTree(const std::string &filename);
+    RBTree(const std::string &filename);
 
     void rotateRight(Node* x);
     void rotateLeft(Node* x);
@@ -35,7 +35,7 @@ public:
     Node* getNullNode();
 private:
     Node *root;
-    Node* nullNode;
+    Node *nullNode;
 
 };
 

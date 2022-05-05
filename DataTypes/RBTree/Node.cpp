@@ -5,4 +5,10 @@
 #include "Node.h"
 
 
-
+Node::Node() {
+    this->parent = nullptr;
+    this->leftSon = nullptr;
+    this->rightSon = nullptr;
+    this->value = 0;
+    this->color = 1;
+}
