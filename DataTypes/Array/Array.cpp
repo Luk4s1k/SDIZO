@@ -10,7 +10,7 @@ Array::Array() {
 }
 Array::Array(int size) {
     this->size = size;
-    head = new int[1];
+    head = new int[size];
 }
 
 Array::Array(const std::string &filename) {
@@ -132,7 +132,7 @@ void Array::pop_front() {
         copy(newArr, &head[1], size - 1 );
         delete[] head;
         head = newArr;
-        --size;
+        size--;
     }
 }
 

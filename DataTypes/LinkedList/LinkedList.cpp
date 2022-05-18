@@ -95,7 +95,7 @@ void LinkedList::removeFront() {
         return;
     }
     ListNode *newNode = head->next;
-    head->next->prev = nullptr;
+    newNode->prev = nullptr;
     delete head;
     head = newNode;
     length--;

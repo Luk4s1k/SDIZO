@@ -25,12 +25,9 @@ Heap::Heap(std::string filename) {
 void Heap::heapifyFromStart(int index) {
     int left = getLeftChild(index);
     int right = getRightChild(index);
-    if(left >=heapArray->getSize() || right >=heapArray->getSize()){
-        heapifyFromStart(index - 1);
-    }
     int largest = index;
 
-    if (left < heapArray->getSize() && *heapArray->at(left) > *heapArray->at(index)) {
+    if (left < heapArray->getSize() && *heapArray->at(left) > *heapArray->at(largest)) {
         largest = left;
     }
 
@@ -44,11 +41,12 @@ void Heap::heapifyFromStart(int index) {
         heapifyFromStart(getLeftChild(index));
         heapifyFromStart(getRightChild(index));
         heapifyFromStart(0);
+        heapifyFromEnd(heapArray->getSize());
     }
 }
 
 void Heap::heapifyFromEnd(int index) {
-    if (index && *heapArray->at(getParent(index)) < *heapArray->at(index))
+    if ( index && (*heapArray->at(getParent(index)) < *heapArray->at(index)))
     {
         swap(index, getParent(index));
 
@@ -57,9 +55,9 @@ void Heap::heapifyFromEnd(int index) {
 }
 
 void Heap::addElement(int value) {
-    heapArray->push_back(value);
-    int index = heapArray->getSize() - 1;
-    heapifyFromEnd(index);
+    heapArray->push_front(value);
+    heapifyFromStart(0);
+
 }
 
 int Heap::extractRoot() {
@@ -83,18 +81,8 @@ void Heap::printAsArray() {
 }
 
 
-bool Heap::checkHeap(){
-    for (int i = 0; i < getParent(heapArray->getSize() - 1); i++){
-        if(*heapArray->at(i) < *heapArray->at(getLeftChild(i))){
-            return false;
-        }else if (*heapArray->at(i) < *heapArray->at(getRightChild(i))){
-            return false;
-        }
-    }
-    return true;
-}
-
 int Heap::getParent(unsigned int index) {
+    if(index == 0) return 0;
     return (index - 1) / 2;
 }
 
@@ -110,11 +98,12 @@ int Heap::getRightChild(unsigned int index) {
 void Heap::swap(int a, int b)
 {
     int temp = *heapArray->at(a);
-    *heapArray->at(a) = *heapArray->at(b);
-    *heapArray->at(b) = temp;
+    int temp2 = *heapArray->at(b);
+    heapArray->modify(a,temp2);
+    heapArray->modify(b,temp);
 }
 
-bool Heap::search(int value) {
+int Heap::search(int value) {
     return heapArray->search(value);
 }
 
@@ -124,7 +113,7 @@ Heap::~Heap() {
 
 void Heap::removeElement(int position) {
     heapArray->pop(position);
-    heapifyFromEnd(position-1);
+    heapifyFromStart(0);
 }
 
 /*Ta czesc odpowiada za wyświetlenie kopca w postaci dzewa

@@ -32,13 +32,12 @@ public:
     int getLeftChild(unsigned int index);
     int getRightChild(unsigned int index);
 
-    bool search(int value);
+    int search(int value);
 
 
     void printer (unsigned index, unsigned mlength);
     void print_tree ();
 
-    bool checkHeap();
 };
 
 
